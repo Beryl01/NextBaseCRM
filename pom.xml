@@ -15,7 +15,6 @@
 
     <dependencies>
         <!-- This is dependency for selenium java binding -->
-
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -24,7 +23,6 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
-
             <!-- This WebDriverManager dependency to help us set up Browser driver     -->
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
