@@ -20,11 +20,17 @@ public class NextBaseCreatePollFunction {
     @FindBy(xpath = "//button[@id='blog-submit-button-save']")
     public WebElement sendButton;
 
-    @FindBy(xpath = "//*[@id=\"bx-html-editor-iframe-cnt-idPostFormLHE_blogPostForm\"]/iframe")
+    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
     public WebElement iframeElm;
+
+    @FindBy(tagName = "body")
+    public WebElement iframeBody;
 
     @FindBy(xpath = "//span[@class='feed-add-info-text']")
     public WebElement MsgNotSpecified;
+
+    @FindBy(xpath = "//*[@class='feed-post-text-block-inner-inner']")
+    public WebElement cards;
 
 
 
@@ -59,6 +65,10 @@ public class NextBaseCreatePollFunction {
 
     public void clickIFrame(){
         this.iframeElm.click();
+    }
+
+    public void cardsE(String str){
+        this.cards.sendKeys(str);
     }
 
 
