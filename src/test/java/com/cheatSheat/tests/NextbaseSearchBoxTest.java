@@ -8,6 +8,8 @@ import com.cheatSheat.utility.ConfigReader;
 import com.cheatSheat.utility.TestBase;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+
 public class NextbaseSearchBoxTest extends TestBase {
 
     @Test
@@ -23,8 +25,13 @@ public class NextbaseSearchBoxTest extends TestBase {
         nextBaseLogin.login(username, password);
 
         BrowserUtil.waitFor(2);
+        nextBaseSearchBox.headersearchBeforeClick();
+
+        nextBaseSearchBox.setHeaderSearchAfterClick();
+        BrowserUtil.waitFor(2);
 
 
 
     }
+
 }
