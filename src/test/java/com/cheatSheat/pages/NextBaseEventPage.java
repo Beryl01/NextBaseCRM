@@ -13,13 +13,25 @@ import java.security.Key;
 
 public class NextBaseEventPage {
 
-    @FindBy(xpath = "(//span[.='Event'])[2]")
+    @FindBy(xpath = "//span[@id='feed-add-post-form-tab-calendar']")
     public WebElement eventButton;
 
-    @FindBy(id = "feed-cal-event-namecal_3Jcl")
+    @FindBy(xpath = "//input[@id = \"feed-cal-event-namecal_3Jcl\"]")
     public WebElement eventName;
 
-    public void nextBaseEvents(){
+    @FindBy(xpath = "//input[@id=\"event-full-daycal_3Jcl\"]")
+    public WebElement allDay;
+
+    @FindBy(xpath = "(//label[@class=\"feed-event-date-label\"])[1]")
+    public WebElement eventStart;
+
+    @FindBy(xpath = "//input[@id=\"event-remindercal_3Jcl\"]")
+    public WebElement setReminder;
+
+    @FindBy(xpath = "//select[@id=\"event-remind_typecal_3Jcl\"]")
+    public WebElement defaultReminderTime;
+
+    public NextBaseEventPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
@@ -33,8 +45,16 @@ public class NextBaseEventPage {
     }
     //input event name
     public void setNameBody(){
-        eventName.sendKeys("Graduation Day " + Keys.ENTER);
+        eventName.sendKeys("Graduation Day ");
     }
+
+/*    public void setAllDay(){
+        allDay.click();
+        allDay.isSelected();
+    }*/
+
+
+
 
 
 

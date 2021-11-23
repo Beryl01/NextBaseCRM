@@ -8,6 +8,8 @@ import com.cheatSheat.utility.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class NextBaseCreateSchedule extends TestBase {
     @Test
     public void createSchedule(){
@@ -20,13 +22,24 @@ public class NextBaseCreateSchedule extends TestBase {
         nextBaseEventPage.goTo();
         nextBaseLogin.login(username, password);
 
+        BrowserUtil.waitFor(2);
         nextBaseEventPage.event();
 
         BrowserUtil.waitFor(2);
+        assertTrue(nextBaseEventPage.eventName.isDisplayed());
+        BrowserUtil.waitFor(1);
+        nextBaseEventPage.allDay.click();
+
+        assertFalse(nextBaseEventPage.eventStart.isDisplayed());
+
+        BrowserUtil.waitFor(2);
+
+        nextBaseEventPage.setReminder.click();
+        BrowserUtil.waitFor(2);
+
+        assertFalse(nextBaseEventPage.defaultReminderTime.isDisplayed());
+
         nextBaseEventPage.setNameBody();
-
-
-
 
 
     }
