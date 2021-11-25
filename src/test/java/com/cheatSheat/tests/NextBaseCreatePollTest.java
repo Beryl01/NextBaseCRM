@@ -10,6 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class NextBaseCreatePollTest  extends TestBase {
@@ -65,7 +69,7 @@ public class NextBaseCreatePollTest  extends TestBase {
         createPollFunction.cancelPoll();
         assertFalse(question1.isDisplayed());
 
-        /*
+
         BrowserUtil.waitFor(1);
         createPollFunction.poll();
 
@@ -76,15 +80,22 @@ public class NextBaseCreatePollTest  extends TestBase {
 
         driver.switchTo().frame(createPollFunction.iframeElm);
 
-        createPollFunction.clickIFrame();
-        createPollFunction.iframeElm.sendKeys("Hello World");
+        createPollFunction.iframeBody.click();
+        String data = "Welcome to resort 26";
+        createPollFunction.iframeBody.sendKeys(data);
 
         driver.switchTo().defaultContent();
         BrowserUtil.waitFor(1);
 
         createPollFunction.clickSendButton();
 
-         */
+        BrowserUtil.waitFor(2);
+
+        //List<WebElement> theCards = new ArrayList<WebElement>(Arrays.asList(createPollFunction.cards));
+
+        System.out.println(createPollFunction.cards.getText());
+        assertEquals(data, createPollFunction.cards.getText());
+
         //The message title is not specified” should be displayed when a poll is being created without title.
         BrowserUtil.waitFor(1);
         createPollFunction.poll();
